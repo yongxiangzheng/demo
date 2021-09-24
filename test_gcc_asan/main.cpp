@@ -9,14 +9,14 @@ int fun0(){
 
 //  内存泄漏
 char *fun1(char *str) {
-    static char *p;
+    char *p;
     p = new char [64];
     strcpy(p,str);
     return p;
 }
 
 int fun2(){
-    char *str=fun1("abcd");
+    char *str=fun1((char*)"abcd");
     printf("str=%s\n",str);
     return 0;
 }
@@ -34,5 +34,5 @@ int main(int argc, char *argv[])
     //fun0();
     fun2();
     //fun3();
-    return 0;//a.exec();
+    //return a.exec();
 }

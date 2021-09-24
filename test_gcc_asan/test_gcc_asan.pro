@@ -9,6 +9,7 @@ CONFIG -= app_bundle
 
 QMAKE_CXXFLAGS += -fsanitize=address -fno-omit-frame-pointer -g
 
+#QMAKE_CXXFLAGS += -g
 LIBS += -lasan
 
 SOURCES += \
