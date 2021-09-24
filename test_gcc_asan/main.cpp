@@ -7,9 +7,32 @@ int fun0(){
     return 0;
 }
 
+//  内存泄漏
+char *fun1(char *str) {
+    static char *p;
+    p = new char [64];
+    strcpy(p,str);
+    return p;
+}
+
+int fun2(){
+    char *str=fun1("abcd");
+    printf("str=%s\n",str);
+    return 0;
+}
+
+// 非法内存
+int fun3(){
+    char *p = NULL;
+    strcpy(p,"a");
+    return 0;
+}
+
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    fun0();
-    return a.exec();
+    //fun0();
+    fun2();
+    //fun3();
+    return 0;//a.exec();
 }
